@@ -38,7 +38,7 @@
         android:id="@+id/txtCantidad"
         android:layout_width="327dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Cantidad"
         android:inputType="text"
@@ -54,8 +54,16 @@
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.471" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDatos"
+        android:layout_width="410dp"
+        android:layout_height="388dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="390dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

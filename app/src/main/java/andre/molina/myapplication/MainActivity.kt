@@ -2,12 +2,15 @@ package andre.molina.myapplication
 
 import Modelos.ClaseConexion
 import android.os.Bundle
+import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,6 +31,17 @@ class MainActivity : AppCompatActivity() {
         val txtPrecio = findViewById<EditText>(R.id.txtPrecio)
         val txtCantidad = findViewById<EditText>(R.id.txtCantidad)
         val btnAgregar = findViewById<Button>(R.id.btnAgregar)
+        val rcvDatos = findViewById<RecyclerView>(R.id.rcvDatos)
+
+        //Ponerle un layout a mi RecyclerView
+        rcvDatos.layoutManager = LinearLayoutManager(this)
+
+        //Crear un adaptador. El adaptador es el que revisa si hay datos nuevos en la base de datos, nosotros creamos
+        //el adaptador
+
+        val miAdaptador = Adaptador(listaDeDatos)
+
+
 
         //2-Porgramar el botón de agregar
         btnAgregar.setOnClickListener {
@@ -43,8 +57,17 @@ class MainActivity : AppCompatActivity() {
                 addProducto.setInt(3, txtPrecio.text.toString().toInt())
                 addProducto.executeUpdate()
             }
+
+            //Mostrar datos
+
+
         }
 
-
     }
+}
+
+//Creamos la clae Adaptador afuera de tod0 lo demás porque
+//están dentro de la clase MaINActivity
+class Adaptador(private val Datos:Array<String>) {
+
 }
